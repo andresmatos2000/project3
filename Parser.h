@@ -20,7 +20,9 @@ public:
         parse(tokenList);
     };
     ~Parser(){
-        //std::cout << "In deconstructor" <<std::endl;
+        delete current;
+        delete RuleHolder;
+        delete PredicateHolder;
     }
 private:
     std::vector<Token*> tokens;

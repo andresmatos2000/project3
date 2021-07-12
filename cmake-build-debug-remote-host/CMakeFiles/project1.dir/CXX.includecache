@@ -15,6 +15,12 @@ Predicate.h
 /users/guest/a/amatos/cs236/Predicate.h
 Parameter.h
 /users/guest/a/amatos/cs236/Parameter.h
+Rule.h
+/users/guest/a/amatos/cs236/Rule.h
+vector
+-
+set
+-
 
 /users/guest/a/amatos/cs236/Lexer.h
 vector
@@ -28,6 +34,10 @@ Token.h
 Token.h
 /users/guest/a/amatos/cs236/Token.h
 
+/users/guest/a/amatos/cs236/Parser.cpp
+Parser.h
+/users/guest/a/amatos/cs236/Parser.h
+
 /users/guest/a/amatos/cs236/Parser.h
 Token.h
 /users/guest/a/amatos/cs236/Token.h
@@ -35,10 +45,24 @@ Predicate.h
 /users/guest/a/amatos/cs236/Predicate.h
 DatalogProgram.h
 /users/guest/a/amatos/cs236/DatalogProgram.h
+Rule.h
+/users/guest/a/amatos/cs236/Rule.h
+vector
+-
 
 /users/guest/a/amatos/cs236/Predicate.h
 Parameter.h
 /users/guest/a/amatos/cs236/Parameter.h
+vector
+-
+set
+-
+
+/users/guest/a/amatos/cs236/Rule.h
+Predicate.h
+/users/guest/a/amatos/cs236/Predicate.h
+vector
+-
 
 /users/guest/a/amatos/cs236/Token.h
 string

@@ -23,6 +23,14 @@ CMakeFiles/project1.dir/Lexer.cpp.o
  /users/guest/a/amatos/cs236/StringAutomaton.h
  /users/guest/a/amatos/cs236/Token.h
  /users/guest/a/amatos/cs236/Undefined.h
+CMakeFiles/project1.dir/Parser.cpp.o
+ /users/guest/a/amatos/cs236/DatalogProgram.h
+ /users/guest/a/amatos/cs236/Parameter.h
+ /users/guest/a/amatos/cs236/Parser.cpp
+ /users/guest/a/amatos/cs236/Parser.h
+ /users/guest/a/amatos/cs236/Predicate.h
+ /users/guest/a/amatos/cs236/Rule.h
+ /users/guest/a/amatos/cs236/Token.h
 CMakeFiles/project1.dir/Token.cpp.o
  /users/guest/a/amatos/cs236/Token.cpp
  /users/guest/a/amatos/cs236/Token.h
@@ -33,5 +41,6 @@ CMakeFiles/project1.dir/main.cpp.o
  /users/guest/a/amatos/cs236/Parameter.h
  /users/guest/a/amatos/cs236/Parser.h
  /users/guest/a/amatos/cs236/Predicate.h
+ /users/guest/a/amatos/cs236/Rule.h
  /users/guest/a/amatos/cs236/Token.h
  /users/guest/a/amatos/cs236/main.cpp
