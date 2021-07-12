@@ -9,8 +9,8 @@ private:
 //map from name to relation
 public:
 
-    bool operator< (const Tuple & other) const {
-        ... // compare this Tuple to other Tuple
-    }
+//    bool operator< (const Tuple & other) const {
+//        ... // compare this Tuple to other Tuple
+//    }
 };
 #endif //PROJECT1_DATABASE_H

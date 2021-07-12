@@ -17,12 +17,11 @@ public:
     Parser(std::vector<Token*> tokenList){
         this->index = 0;
         this->current = tokenList[0];
+        this->current = tokenList[0];
         parse(tokenList);
     };
     ~Parser(){
-        delete current;
-        delete RuleHolder;
-        delete PredicateHolder;
+        //std::cout << "In deconstructor" <<std::endl;
     }
 private:
     std::vector<Token*> tokens;

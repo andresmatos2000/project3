@@ -23,13 +23,13 @@ Lexer::Lexer() {
 }
 
 Lexer::~Lexer() {
-    for (auto p : automata){
-        delete p;
-    }
-    automata.clear();
-    for( auto p: tokens){
-        delete p;
-    } tokens.clear();
+//    for (auto p : automata){
+//        delete p;
+//    }
+//    automata.clear();
+//    for( auto p: tokens){
+//        delete p;
+//    } tokens.clear();
     // TODO: need to clean up the memory in `automata` and `tokens`
 }
 

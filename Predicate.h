@@ -22,13 +22,6 @@ public:
         this->parameters = std::vector<Parameter*>();
     };
 
-    ~Predicate(){
-        for(Parameter* t : parameters){
-            delete t;
-        }
-        parameters.clear();
-    };
-
     std::string To_String();
 };
 
