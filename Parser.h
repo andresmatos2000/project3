@@ -13,6 +13,7 @@
 class Parser {
 public:
     DatalogProgram* datalog = new DatalogProgram();
+    DatalogProgram* getDatalog();
     void parse(std::vector<Token*> tokens);
     Parser(std::vector<Token*> tokenList){
         this->index = 0;
@@ -24,6 +25,7 @@ public:
         //std::cout << "In deconstructor" <<std::endl;
     }
 private:
+
     std::vector<Token*> tokens;
     Predicate* PredicateHolder;
     Rule* RuleHolder;
@@ -76,9 +78,9 @@ void Parser::parse(std::vector<Token *> tokenList) {
         exceptionCaught = true;
     }
     if(!exceptionCaught){
-        std::cout << "Success!" << std::endl;
+        //std::cout << "Success!" << std::endl;
         datalog->parseHelper();
-        std::cout << datalog->To_String();
+        //std::cout << datalog->To_String();
     }
 }
 void Parser::datalogProgram(){
@@ -286,6 +288,10 @@ void Parser::parseEOF(){
     } else {
         throw current->To_String();
     }
+}
+
+DatalogProgram* Parser::getDatalog(){
+    return datalog;
 }
 
 

@@ -4,13 +4,25 @@
 
 #ifndef PROJECT1_DATABASE_H
 #define PROJECT1_DATABASE_H
+
+#include <map>
+#include "Interpreter.h"
+#include "Relation.h"
+
 class Database {
 private:
 //map from name to relation
+std::map<std::string, Relation*> map;
+std::vector<Relation*> relations;
 public:
+void addRelation(std::string name,Relation* relation);
 
-//    bool operator< (const Tuple & other) const {
-//        ... // compare this Tuple to other Tuple
-//    }
 };
+
+void Database::addRelation(std::string name,Relation* relation) {
+    relation->addTuple(Tuple({"TEST"}));
+    relation->toString();
+    relations.push_back(relation);
+}
+
 #endif //PROJECT1_DATABASE_H

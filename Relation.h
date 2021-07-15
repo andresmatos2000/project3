@@ -5,29 +5,36 @@
 #ifndef PROJECT1_RELATION_H
 #define PROJECT1_RELATION_H
 #include "Tuple.h"
+#include "Header.h"
 #include <set>
 class Relation {
 private:
     std::string name;
     Header* header;
-    set<Tuple> Tuples;
+    std::set<Tuple> Tuples;
 public:
-    void addTuple(Tuple* tuple);
-    std::string To_String();
+    void addTuple(Tuple tuple);
+    void toString();
     Relation* selectIndex();
     Relation* selectValue();
     Relation* project();
     Relation* rename();
 
-    Relation::Relation(std::string name, Header* header){
+    Relation(std::string name, Header* header){
         this->name = name;
         this->header = header;
-        Tuples = {};
     };
 };
-
-int Relation::To_String() {
-
+void Relation::toString() {
+    for(Tuple i : Tuples){
+        for(unsigned int j = 0; j < i.values.size(); j++){
+            if(j == i.values.size()-1)
+                std::cout << header->getValue(j) + "=" + i.values[j];
+            else
+                 std::cout << header->getValue(j) + "=" + i.values[j] + ", ";
+        };
+        std::cout << std::endl;
+    }
 }
 
 Relation *Relation::selectIndex() {
@@ -46,7 +53,7 @@ Relation *Relation::rename() {
     return nullptr;
 }
 
-void Relation::addTuple(Tuple* tuple) {
+void Relation::addTuple(Tuple tuple) {
     Tuples.insert(tuple);
 };
 #endif //PROJECT1_RELATION_H

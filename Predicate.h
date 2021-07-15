@@ -11,10 +11,9 @@ class Predicate {
 private:
     std::vector<Parameter*> parameters;
     std::string name;
-    std::string getName();
-
-
 public:
+
+    std::string getName();
     std::vector<Parameter*> getParameters();
     void addParameter(Parameter* parameter);
     Predicate(std::string name){

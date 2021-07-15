@@ -1,5 +1,9 @@
 #include "Lexer.h"
 #include "Parser.h"
+#include "Interpreter.h"
+#include "Header.h"
+#include "Tuple.h"
+#include "Relation.h"
 #include <iostream>
 #include <fstream>
 
@@ -28,8 +32,10 @@ int main(int argc, char** argv) {
     }
     //cout << "Total Tokens = " + to_string(tokenList.size());
     Parser* parser = new Parser(tokenList);
+    Interpreter* interpreter = new Interpreter(parser->getDatalog());
     delete parser;
     delete lexer;
+    delete interpreter;
 
     return 0;
 }
