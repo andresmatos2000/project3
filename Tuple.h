@@ -17,6 +17,7 @@ public:
             this->values.push_back(i);
         }
     };
+    Tuple();
     void addTuple(std::string value);
     void toString();
     std::vector<std::string>getTuple();

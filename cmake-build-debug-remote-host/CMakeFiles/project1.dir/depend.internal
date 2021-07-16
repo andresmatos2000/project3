@@ -28,6 +28,16 @@ CMakeFiles/project1.dir/Token.cpp.o
  /users/guest/a/amatos/cs236/Token.h
 CMakeFiles/project1.dir/main.cpp.o
  /users/guest/a/amatos/cs236/Automaton.h
+ /users/guest/a/amatos/cs236/Database.h
+ /users/guest/a/amatos/cs236/DatalogProgram.h
+ /users/guest/a/amatos/cs236/Header.h
+ /users/guest/a/amatos/cs236/Interpreter.h
  /users/guest/a/amatos/cs236/Lexer.h
+ /users/guest/a/amatos/cs236/Parameter.h
+ /users/guest/a/amatos/cs236/Parser.h
+ /users/guest/a/amatos/cs236/Predicate.h
+ /users/guest/a/amatos/cs236/Relation.h
+ /users/guest/a/amatos/cs236/Rule.h
  /users/guest/a/amatos/cs236/Token.h
+ /users/guest/a/amatos/cs236/Tuple.h
  /users/guest/a/amatos/cs236/main.cpp
