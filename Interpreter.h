@@ -61,7 +61,7 @@ Relation* Interpreter::evaluatePredicate(Predicate* predicate) {
     };
     //Variable Select
     std::vector<int> recordedVariables;
-    for(int i = 0; i < predicate->getParameters().size(); i++) {
+    for(unsigned int i = 0; i < predicate->getParameters().size(); i++) {
         for(auto j : variables){
             bool found = false;
           if(predicate->getParameters()[i]->getValue() == j.second){
