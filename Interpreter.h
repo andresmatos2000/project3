@@ -68,9 +68,10 @@ Relation* Interpreter::evaluatePredicate(Predicate* predicate) {
               relation = relation->select(relation,j.first,i);
               //if j.first is already in recordedVariables don't push, else push
               for(auto k : recordedVariables) {
-                  if(j.first == k)
-                  found = true;
-                  break;
+                  if(j.first == k) {
+                      found = true;
+                      break;
+                  }
               }
               if(!found){
                   recordedVariables.push_back(j.first);
