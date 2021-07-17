@@ -59,42 +59,40 @@ Relation* Interpreter::evaluatePredicate(Predicate* predicate) {
         }
         j++;
     };
-    std::vector<int> recordedVariables;
     //Variable Select
-    for(auto i: variables){
-        int firstInstance;
-        for(auto j: variables){
-            if(i.first == j.first){
-                firstInstance = i.first;
-            } else {
-                if(firstInstance < i.first) {
-                    if (i.second == j.second) {
-                        bool tobreak = false;
-                        for(auto k : recordedVariables){
-                            if (k == i.first)
-                                tobreak = true;
-                        }
-                        if(tobreak)break;
-                        recordedVariables.push_back(i.first);
-                        relation = relation->select(relation,firstInstance,i.first);
-                        //std::cout << "Call select" << i.first << i.second;
+    std::vector<int> recordedVariables;
+    for(int i = 0; i < predicate->getParameters().size(); i++) {
+        for(auto j : variables){
+            bool found = false;
+          if(predicate->getParameters()[i]->getValue() == j.second){
+              relation = relation->select(relation,j.first,i);
+              //if j.first is already in recordedVariables don't push, else push
+              for(auto k : recordedVariables) {
+                  if(j.first == k)
+                  found = true;
+                  break;
+              }
+              if(!found){
+                  recordedVariables.push_back(j.first);
+              };
+              break;
+          }
+        };
 
-                    }
-                }
-            };
-
-        }
     }
+
     //Constant Select
     for(auto i: constants){
         relation = relation->select(relation,i.second,i.first);
     }
 
     //RENAME
+
     relation = relation->rename(relation,variables);
 
     //PROJECT
-    relation = relation->project(relation,variables);
+    relation = relation->project(relation,recordedVariables,variables);
+
 
 
     if(relation->getSize() > 0) {

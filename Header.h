@@ -20,7 +20,7 @@ public:
     }
     void addHeader(std::string name);
     void changeHeader(std::string string, int index);
-    void fixHeader(std::map<int, std::string> variables);
+    std::vector<int>  fixHeader(std::map<int, std::string> variables);
     void toString();
     std::string getValue(int i);
 
@@ -31,12 +31,25 @@ for( auto i : name){
     std::cout << i << std::endl;
 };
 };
-void Header::fixHeader(std::map<int, std::string> variables) {
+std::vector<int> Header::fixHeader(std::map<int, std::string> variables) {
     std::vector<std::string> newHeaderList;
+    std::vector<int> indexesSaved;
     for(auto i: variables){
+        bool seen = false;
+        for(auto j: newHeaderList){
+            if(j == i.second) {
+                seen = true;
+                break;
+            }
+            else indexesSaved.push_back(i.first);
+        }
+        if(seen)
+            ;
+        else
         newHeaderList.push_back(headerList[i.first]);
     }
     headerList = newHeaderList;
+    return indexesSaved;
 }
 void Header::changeHeader(std::string string,int index) {
     headerList[index] = string;

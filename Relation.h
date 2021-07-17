@@ -18,7 +18,7 @@ public:
     Relation* select(Relation* relation, int index1, int index2);
     Relation* select(Relation* relation, std::string index1, int index2);
     int getSize();
-    Relation* project(Relation* relation,std::map<int, std::string> variables);
+    Relation* project(Relation* relation,std::vector<int> recordedVariables,std::map<int, std::string> variables);
     Relation* rename(Relation* relation,std::map<int, std::string> constants);
 
     Relation(std::string name, Header* header){
@@ -40,10 +40,14 @@ void Relation::toString(int variableSize) {
             std::cout << "  " + header->getValue(0) + "=" + i.values[0] + "";
         } else
         for(unsigned int j = 0; j < i.values.size(); j++){
-            if(j == i.values.size()-1)
+            if(j == 0){ //first
+                std::cout << "  " + header->getValue(j) + "=" + i.values[j] +  ", ";
+            }
+            else if(j == i.values.size()-1) // last
                 std::cout << header->getValue(j) + "=" + i.values[j];
-            else
-                 std::cout << "  " + header->getValue(j) + "=" + i.values[j] + ", ";
+            else {
+                std::cout << header->getValue(j) + "=" + i.values[j] + ", ";
+            }
         };
         std::cout << std::endl;
     }
@@ -75,30 +79,48 @@ Relation *Relation::select(Relation* relation, std::string index1, int index2) {
     }
     return newRelation;
 }
-
-Relation *Relation::project(Relation* relation,std::map<int, std::string> variables) {
+Relation *Relation::project(Relation* relation,std::vector<int> recordedVariables, std::map<int, std::string> variables) {
     Header* temp = new Header(relation->header);
-    temp->fixHeader(variables);
+    std::vector<int> indexes = temp->fixHeader(variables);
     Relation* newRelation = new Relation(relation->name,temp);
     std::set<Tuple> newTuples = relation->Tuples;
-    for(auto i: newTuples){
-        std::vector<std::string> recordedVariables;
+    for(auto i : newTuples){
         std::vector<std::string> tuple;
-            for(auto k: variables){
-                bool seen = false;
-                for(auto j: recordedVariables){
-                    if(k.second == j)
-                        seen = true;
-                }
-                if(seen)break;
-                recordedVariables.push_back(k.second);
-                tuple.push_back(i.getTuple()[k.first]);
-            }
-        newRelation->addTuple(Tuple(tuple));
+        for(int j = 0; j < recordedVariables.size(); j++){
+            tuple.push_back(i.getTuple()[recordedVariables[j]]);
         }
+        newRelation->addTuple(tuple);
+    }
     return newRelation;
 
+
 }
+//Relation *Relation::project(Relation* relation,std::map<int, std::string> variables) {
+//    Header* temp = new Header(relation->header);
+//    temp->fixHeader(variables);
+//    Relation* newRelation = new Relation(relation->name,temp);
+//    std::set<Tuple> newTuples = relation->Tuples;
+//    for(auto i: newTuples){
+//        std::vector<std::string> recordedVariables;
+//        std::vector<std::string> tuple;
+//            for(auto k: variables){
+//                bool seen = false;
+//                for(auto j: recordedVariables){
+//                    if(k.second == j)
+//                        seen = true;
+//                }
+//                if(seen)
+//                    break;
+//                else
+//
+//                recordedVariables.push_back(k.second);
+//                tuple.push_back(i.getTuple()[k.first]);
+//            }
+//        newRelation->addTuple(Tuple(tuple));
+//        }
+//    return newRelation;
+//
+//}
 
 Relation *Relation::rename(Relation* relation,std::map<int, std::string> variables) {
     Header* temp = new Header(relation->header);

@@ -10,10 +10,10 @@ name('2','2','2','1').
 name('2','2','3','3').
 Rules:
 Queries:
+name(p,p,q,r)?
 name(t,t,t,t)?
 name(s,s,s,'1')?
 name('2',t,s,'3')?
-name(p,p,q,r)?
 name(p,p,'1',q)?
 
 
